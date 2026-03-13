@@ -344,10 +344,10 @@ npm run release
 
 ### 相关链接
 
-- [GitHub 仓库](https://github.com/your-org/115-cloud-master)
-- [项目看板](https://github.com/your-org/115-cloud-master/projects)
-- [问题追踪](https://github.com/your-org/115-cloud-master/issues)
-- [CI/CD](https://github.com/your-org/115-cloud-master/actions)
+- [GitHub 仓库](https://github.com/sukris/115-cloud-master)
+- [项目看板](https://github.com/sukris/115-cloud-master/projects)
+- [问题追踪](https://github.com/sukris/115-cloud-master/issues)
+- [CI/CD](https://github.com/sukris/115-cloud-master/actions)
 
 ---
 

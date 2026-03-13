@@ -26,12 +26,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/your-org/115-cloud-master.git"
+    "url": "git+https://github.com/sukris/115-cloud-master.git"
   },
   "bugs": {
-    "url": "https://github.com/your-org/115-cloud-master/issues"
+    "url": "https://github.com/sukris/115-cloud-master/issues"
   },
-  "homepage": "https://github.com/your-org/115-cloud-master#readme",
+  "homepage": "https://github.com/sukris/115-cloud-master#readme",
   "engines": {
     "node": ">=18.0.0"
   },

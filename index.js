@@ -49,7 +49,12 @@ class Skill115Master {
    * @param {Object} context - 上下文
    * @returns {Promise<string>} 回复
    */
-  async handle(message, context = {}) {
+  async handle(message, _context = {}) {
+    // 输入校验
+    if (typeof message !== 'string' || !message.trim()) {
+      return '❌ 参数错误，请提供有效的消息';
+    }
+
     const msg = message.trim().toLowerCase();
 
     // 登录
@@ -140,9 +145,8 @@ class Skill115Master {
           await this.agent.sendMessage('✅ 已扫码，请在手机上确认');
         }
       },
-      onComplete: async (result) => {
+      onComplete: async (_result) => {
         await this.initClient();
-        const userInfo = await this.client.browser.getFileDetail('0').catch(() => ({}));
         await this.agent.sendMessage(`🎉 登录成功！\n说"帮助"查看功能`);
       },
       onError: async (error) => {

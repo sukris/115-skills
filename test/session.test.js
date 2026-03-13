@@ -23,8 +23,8 @@ describe('SessionManager', () => {
       expect(sessionManager.cookieStore).toBe(mockCookieStore);
     });
 
-    it('should set default session timeout', () => {
-      expect(sessionManager.sessionTimeout).toBe(90 * 24 * 60 * 60 * 1000);
+    it('should have autoRenewThreshold', () => {
+      expect(sessionManager.autoRenewThreshold).toBe(7 * 24 * 60 * 60 * 1000);
     });
   });
 
@@ -35,7 +35,7 @@ describe('SessionManager', () => {
       const info = await sessionManager.getSessionInfo();
 
       expect(info.loggedIn).toBe(false);
-      expect(info.uid).toBeNull();
+      expect(info.reason).toBe('no_cookie');
     });
 
     it('should return logged in when cookie exists and valid', async () => {

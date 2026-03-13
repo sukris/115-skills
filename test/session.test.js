@@ -1,5 +1,4 @@
 const SessionManager = require('../lib/session');
-const CookieStore = require('../lib/storage/cookie-store');
 
 // Mock CookieStore
 jest.mock('../lib/storage/cookie-store');

@@ -1,5 +1,4 @@
 const Auth115 = require('../lib/auth');
-const CookieStore = require('../lib/storage/cookie-store');
 
 describe('Auth115', () => {
   let auth;

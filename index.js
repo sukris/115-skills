@@ -7,6 +7,7 @@ const FileTransfer = require('./files/transfer');
 const ShareTransfer = require('./share/transfer');
 const LixianDownload = require('./lixian/download');
 const SmartOrganizer = require('./organizer/smart-organizer');
+const { formatSize: formatSizeUtil } = require('./utils/helpers');
 
 /**
  * 115 Cloud Master Skill 主入口
@@ -326,16 +327,10 @@ ${list || '无需清理'}
   }
 
   /**
-   * 格式化大小
+   * 格式化大小（使用工具函数）
    */
   formatSize(bytes) {
-    const units = ['B', 'KB', 'MB', 'GB', 'TB'];
-    let i = 0;
-    while (bytes >= 1024 && i < units.length - 1) {
-      bytes /= 1024;
-      i++;
-    }
-    return `${bytes.toFixed(1)} ${units[i]}`;
+    return formatSizeUtil(bytes);
   }
 
   /**

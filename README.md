@@ -2,15 +2,32 @@
 
 > 115 网盘智能管理 Skill - 让聊天成为管理网盘的最优雅方式
 
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/your-org/115-cloud-master)
+[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/sukris/115-cloud-master)
 [![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-green.svg)](https://nodejs.org/)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
 ---
 
 ## 📖 简介
 
 **115 Cloud Master** 是一个功能强大的 OpenClaw Skill，让你在聊天中轻松管理 115 网盘。无需浏览器，无需复杂操作，一切都在对话中完成。
+
+## 📜 规范标准
+
+本项目遵循以下开放标准：
+
+- **[Claude Code Skills](https://code.claude.com/docs/zh-CN/skills)** - Claude Code 的 Skill 扩展规范
+- **[Agent Skills](https://agentskills.io)** - 跨 AI 工具的开放 Skill 标准
+
+### 兼容性
+
+| 平台 | 状态 | 说明 |
+|------|------|------|
+| Claude Code | ✅ 完全兼容 | 遵循 Skills 规范 |
+| Gemini CLI | ✅ 兼容 | 遵循 Agent Skills 标准 |
+| Cursor | ✅ 兼容 | 遵循 Agent Skills 标准 |
+| OpenHands | ✅ 兼容 | 遵循 Agent Skills 标准 |
+| 其他支持 Agent Skills 的平台 | ✅ 兼容 | 跨平台可用 |
 
 ## ✨ 核心功能
 
@@ -115,52 +132,64 @@ npm run format
 
 ```
 115-cloud-master/
-├── index.js                  # Skill 主入口
-├── package.json              # 项目配置
-├── .claude/skills/           # Skill 规范目录
-│   └── 115-cloud-master/
-│       ├── SKILL.md          # Skill 主入口
-│       ├── reference.md      # API 参考
-│       ├── examples.md       # 使用示例
-│       └── scripts/run.sh    # 执行脚本
-├── lib/                      # 核心代码
-│   ├── auth.js               # 扫码登录
-│   ├── session.js            # 会话管理
+├── .claude/                      # Claude Code 配置
+│   └── skills/                   # Skill 定义（遵循 Claude Code Skills 规范）
+│       └── 115-cloud-master/
+│           ├── SKILL.md          # Skill 主入口（YAML frontmatter + 说明）
+│           ├── reference.md      # API 参考文档
+│           ├── examples.md       # 使用示例
+│           └── scripts/
+│               └── run.sh        # 执行脚本
+├── lib/                          # 核心代码库
+│   ├── auth.js                   # 扫码登录模块
+│   ├── session.js                # 会话管理模块
 │   ├── utils/
-│   │   └── helpers.js        # 通用工具
+│   │   └── helpers.js            # 通用工具函数
 │   ├── storage/
-│   │   └── cookie-store.js   # Cookie 加密存储
+│   │   └── cookie-store.js       # Cookie 加密存储
 │   ├── client/
-│   │   └── http-client.js    # HTTP 请求封装
+│   │   └── http-client.js        # HTTP 请求封装（速率限制/重试）
 │   ├── files/
-│   │   ├── browser.js        # 文件浏览
-│   │   ├── operations.js     # 文件操作
-│   │   └── transfer.js       # 上传下载
+│   │   ├── browser.js            # 文件浏览 API
+│   │   ├── operations.js         # 文件操作 API
+│   │   └── transfer.js           # 上传下载 API
 │   ├── share/
-│   │   └── transfer.js       # 分享转存
+│   │   └── transfer.js           # 分享转存 API
 │   ├── lixian/
-│   │   └── download.js       # 离线下载
+│   │   └── download.js           # 离线下载 API
 │   └── organizer/
-│       ├── classifier.js     # 文件分类
-│       └── smart-organizer.js # 智能整理
-├── test/                     # 测试文件
-│   ├── auth.test.js
-│   ├── session.test.js
+│       ├── classifier.js         # 文件分类器
+│       └── smart-organizer.js    # 智能整理引擎
+├── test/                         # 单元测试（Jest）
+│   ├── auth.test.js              # 认证模块测试
+│   ├── session.test.js           # 会话管理测试
 │   ├── client/
-│   │   └── http-client.test.js
+│   │   └── http-client.test.js   # HTTP 客户端测试
 │   ├── organizer/
-│   │   └── classifier.test.js
+│   │   └── classifier.test.js    # 分类器测试
 │   └── storage/
-│       └── cookie-store.test.js
-└── docs/                     # 文档
-    ├── COMPLETE_REVIEW.md    # 完整评审报告
-    ├── CODE_REVIEW.md        # 代码评审
-    ├── SKILL_SPEC_GUIDE.md   # Skill 规范
-    ├── user/
-    │   └── USER_GUIDE.md     # 用户手册
-    └── api/
-        └── SKILL_API.md      # API 文档
+│       └── cookie-store.test.js  # Cookie 存储测试
+├── docs/                         # 项目文档
+│   ├── COMPLETE_REVIEW.md        # 完整评审报告
+│   ├── CODE_REVIEW.md            # 代码评审
+│   ├── SKILL_SPEC_GUIDE.md       # Skill 规范指南
+│   ├── user/                     # 用户文档
+│   │   └── USER_GUIDE.md         # 用户手册
+│   └── api/                      # API 文档
+│       └── SKILL_API.md          # API 参考
+├── index.js                      # Skill 主入口
+├── package.json                  # 项目配置
+└── README.md                     # 项目说明
 ```
+
+### 目录说明
+
+| 目录 | 用途 | 规范参考 |
+|------|------|---------|
+| `.claude/skills/` | Skill 定义 | Claude Code Skills |
+| `lib/` | 核心业务逻辑 | Agent Skills |
+| `test/` | 单元测试 | Jest |
+| `docs/` | 项目文档 | - |
 
 ## 🤝 贡献
 
@@ -172,9 +201,23 @@ MIT License
 
 ## 🔗 链接
 
-- [GitHub 仓库](https://github.com/your-org/115-cloud-master)
-- [问题反馈](https://github.com/your-org/115-cloud-master/issues)
+- [GitHub 仓库](https://github.com/sukris/115-cloud-master)
+- [问题反馈](https://github.com/sukris/115-cloud-master/issues)
 - [ClawHub 页面](https://clawhub.ai/skills/115-cloud-master)
+
+## 📜 规范参考
+
+- **[Claude Code Skills 官方文档](https://code.claude.com/docs/zh-CN/skills)**
+  - Skill 目录结构
+  - YAML frontmatter 配置
+  - 调用控制（disable-model-invocation）
+  - 动态上下文注入
+
+- **[Agent Skills 开放标准](https://agentskills.io)**
+  - 跨平台 Skill 格式
+  - 工具定义规范
+  - 命令注册机制
+  - 兼容性指南
 
 ---
 

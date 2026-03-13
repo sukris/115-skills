@@ -80,10 +80,10 @@ npx clawhub --workdir ~/.openclaw --dir skills install 115-cloud-master
 ## 📚 文档
 
 - [用户手册](docs/user/USER_GUIDE.md)
-- [常见问题](docs/user/FAQ.md)
-- [最佳实践](docs/user/BEST_PRACTICES.md)
 - [API 文档](docs/api/SKILL_API.md)
-- [开发指南](docs/DEVELOPMENT_GUIDE.md)
+- [技能规范](.claude/skills/115-cloud-master/SKILL.md)
+- [使用示例](.claude/skills/115-cloud-master/examples.md)
+- [评审报告](docs/COMPLETE_REVIEW.md)
 
 ## 🛠️ 开发
 
@@ -115,27 +115,60 @@ npm run format
 
 ```
 115-cloud-master/
-├── index.js                 # Skill 主入口
-├── lib/
-│   ├── auth.js              # 认证模块
-│   ├── client.js            # API 客户端
-│   ├── files/               # 文件管理
-│   ├── organizer/           # 智能整理
-│   ├── share/               # 分享转存
-│   ├── lixian/              # 离线下载
-│   └── analytics/           # 数据分析
-├── test/                    # 测试文件
-├── docs/                    # 文档
-└── config/                  # 配置文件
+├── index.js                  # Skill 主入口
+├── package.json              # 项目配置
+├── .claude/skills/           # Skill 规范目录
+│   └── 115-cloud-master/
+│       ├── SKILL.md          # Skill 主入口
+│       ├── reference.md      # API 参考
+│       ├── examples.md       # 使用示例
+│       └── scripts/run.sh    # 执行脚本
+├── lib/                      # 核心代码
+│   ├── auth.js               # 扫码登录
+│   ├── session.js            # 会话管理
+│   ├── utils/
+│   │   └── helpers.js        # 通用工具
+│   ├── storage/
+│   │   └── cookie-store.js   # Cookie 加密存储
+│   ├── client/
+│   │   └── http-client.js    # HTTP 请求封装
+│   ├── files/
+│   │   ├── browser.js        # 文件浏览
+│   │   ├── operations.js     # 文件操作
+│   │   └── transfer.js       # 上传下载
+│   ├── share/
+│   │   └── transfer.js       # 分享转存
+│   ├── lixian/
+│   │   └── download.js       # 离线下载
+│   └── organizer/
+│       ├── classifier.js     # 文件分类
+│       └── smart-organizer.js # 智能整理
+├── test/                     # 测试文件
+│   ├── auth.test.js
+│   ├── session.test.js
+│   ├── client/
+│   │   └── http-client.test.js
+│   ├── organizer/
+│   │   └── classifier.test.js
+│   └── storage/
+│       └── cookie-store.test.js
+└── docs/                     # 文档
+    ├── COMPLETE_REVIEW.md    # 完整评审报告
+    ├── CODE_REVIEW.md        # 代码评审
+    ├── SKILL_SPEC_GUIDE.md   # Skill 规范
+    ├── user/
+    │   └── USER_GUIDE.md     # 用户手册
+    └── api/
+        └── SKILL_API.md      # API 文档
 ```
 
 ## 🤝 贡献
 
-欢迎贡献代码！请查看 [贡献指南](docs/CONTRIBUTING.md)。
+欢迎贡献代码！请提交 Issue 或 Pull Request。
 
 ## 📄 许可证
 
-MIT License - 查看 [LICENSE](LICENSE) 文件
+MIT License
 
 ## 🔗 链接
 

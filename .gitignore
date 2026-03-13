@@ -1,0 +1,56 @@
+# 依赖
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# 日志
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 运行时数据
+data/
+cache/
+temp/
+.tmp/
+
+# 配置文件（敏感）
+.env
+.env.local
+.env.*.local
+config/local.json
+lib/storage/cookies.json
+
+# 测试
+coverage/
+.nyc_output/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# 构建输出
+dist/
+build/
+
+# 临时文件
+*.tmp
+*.temp
+*.bak
+
+# SSH 密钥（绝对不要提交）
+*.pem
+*.key
+!*.pub
+ssh/

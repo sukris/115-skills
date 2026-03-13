@@ -18,7 +18,9 @@ module.exports = {
     'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
     'no-console': 'warn',
     'node/no-missing-import': 'off',
+    'node/no-missing-require': 'off',
     'node/no-unpublished-import': 'off',
+    'node/no-unpublished-require': 'off',
     'node/no-unsupported-features/es-syntax': 'off',
     'prefer-const': 'error',
     'no-var': 'error'

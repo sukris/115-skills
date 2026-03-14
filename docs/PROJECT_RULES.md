@@ -1,4 +1,4 @@
-# 115 Cloud Master 项目规则
+# 115 Skills 项目规则
 
 > 项目版本：v1.0.0  
 > 创建日期：2026-03-14  
@@ -21,7 +21,7 @@
 ## 项目概述
 
 ### 项目名称
-**115 Cloud Master** - 115 网盘智能管理 Skill
+**115 Skills** - 115 网盘智能管理 Skill
 
 ### 项目目标
 创建一个高质量的 OpenClaw Skill，让用户在聊天中优雅地管理 115 网盘。
@@ -192,22 +192,36 @@ function parseShareCode(shareCode) {
 
 ## 提交流程
 
+### Git 分支模型
+
+```
+main (主分支/生产环境)
+  ↑
+develop (开发分支)
+  ↑
+feature/* (功能分支)
+```
+
 ### Git 提交流程
 
 ```bash
-# 1. 创建功能分支
+# 1. 确保在 develop 分支
+git checkout develop
+git pull origin develop
+
+# 2. 创建功能分支
 git checkout -b feature/task-02.01
 
-# 2. 开发代码
+# 3. 开发代码
 # ... 编写代码 ...
 
-# 3. 运行测试
+# 4. 运行测试
 npm test
 
-# 4. 代码格式化
+# 5. 代码格式化
 npm run lint:fix
 
-# 5. 提交代码
+# 6. 提交代码
 git add .
 git commit -m "feat(cookie-store): 实现 Cookie 加密存储
 
@@ -217,11 +231,16 @@ git commit -m "feat(cookie-store): 实现 Cookie 加密存储
 
 Closes TASK-02.01"
 
-# 6. 推送到远程
+# 7. 推送到远程
 git push origin feature/task-02.01
 
-# 7. 创建 Pull Request
+# 8. 创建 Pull Request
 # GitHub 上创建 PR，请求合并到 develop 分支
+
+# 9. 合并到 develop 后，发布前合并到 main
+git checkout main
+git merge develop
+git push origin main
 ```
 
 ### Pull Request 模板

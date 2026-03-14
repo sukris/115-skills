@@ -57,13 +57,13 @@
 #### 1. 创建 Skill 标准目录
 
 ```bash
-mkdir -p .claude/skills/115-cloud-master
-mkdir -p .claude/skills/115-cloud-master/scripts
+mkdir -p .claude/skills/115-skills
+mkdir -p .claude/skills/115-skills/scripts
 ```
 
 #### 2. 创建 SKILL.md 主入口
 
-位置：`.claude/skills/115-cloud-master/SKILL.md`
+位置：`.claude/skills/115-skills/SKILL.md`
 
 必须包含：
 
@@ -76,7 +76,7 @@ mkdir -p .claude/skills/115-cloud-master/scripts
 
 | 字段                       | 建议值                                 | 说明                                                                     |
 | -------------------------- | -------------------------------------- | ------------------------------------------------------------------------ |
-| `name`                     | `115-cloud-master`                     | 技能短名（小写+连字符）                                                  |
+| `name`                     | `115-skills`                     | 技能短名（小写+连字符）                                                  |
 | `description`              | 具体描述触发场景                       | 例如："115 网盘管理：扫码登录、文件浏览、搜索、转存、离线下载、智能整理" |
 | `argument-hint`            | `[action] [target] [options]`          | 参数提示，如：`登录 查看 搜索 转存 磁力 整理`                            |
 | `disable-model-invocation` | `true`（高危操作）或 `false`（查看类） | 建议登录/转存/删除等高危操作设为 true                                    |
@@ -93,14 +93,14 @@ mkdir -p .claude/skills/115-cloud-master/scripts
 - 批量转存
 - 离线下载清理
 
-用户需显式使用 `/115-cloud-master` 调用。
+用户需显式使用 `/115-skills` 调用。
 
 #### 5. 支持文件拆分
 
 当 SKILL.md 超过 500 行时，应拆分为：
 
 ```
-.claude/skills/115-cloud-master/
+.claude/skills/115-skills/
 ├── SKILL.md           # 主入口（<500行）
 ├── reference.md       # 详细 API 参考
 ├── examples.md        # 使用示例
@@ -114,7 +114,7 @@ mkdir -p .claude/skills/115-cloud-master/scripts
 
 ```yaml
 ---
-name: 115-cloud-master
+name: 115-skills
 description: 115 网盘智能管理：扫码登录、文件浏览、搜索、转存、离线下载、智能整理。适用于"登录115"、"查看文件"、"搜索xxx"、"转存链接"、"磁力链接"、"整理文件"等场景。
 argument-hint: [action] [target] [options]
 disable-model-invocation: true
@@ -159,11 +159,11 @@ allowed-tools: Read, Grep, Glob, Bash
 
 ## 参数传递
 
-当用户使用 `/115-cloud-master 登录` 时：
+当用户使用 `/115-skills 登录` 时：
 - `$ARGUMENTS` = "登录"
 - `$ARGUMENTS[0]` = "登录"
 
-当用户使用 `/115-cloud-master 搜索 工作报告` 时：
+当用户使用 `/115-skills 搜索 工作报告` 时：
 - `$ARGUMENTS` = "搜索 工作报告"
 - `$ARGUMENTS[0]` = "搜索"
 - `$ARGUMENTS[1]` = "工作报告"
@@ -300,7 +300,7 @@ allowed-tools: Read, Grep, Glob, Bash
 
 ### Skill 规范验收
 
-- [ ] `.claude/skills/115-cloud-master/SKILL.md` 存在
+- [ ] `.claude/skills/115-skills/SKILL.md` 存在
 - [ ] SKILL.md 包含合法的 YAML frontmatter
 - [ ] name 字段符合规范（小写+连字符）
 - [ ] description 字段描述清晰触发场景

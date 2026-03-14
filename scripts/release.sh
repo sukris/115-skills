@@ -66,8 +66,8 @@ cat > releases/v$VERSION.md << EOF
 
 ## 🔗 链接
 
-- GitHub: https://github.com/sukris/115-cloud-master
-- ClawHub: https://clawhub.ai/skills/115-cloud-master
+- GitHub: https://github.com/sukris/115-skills
+- ClawHub: https://clawhub.ai/skills/115-skills
 
 ## 📝 更新日志
 
@@ -78,5 +78,5 @@ EOF
 echo "✅ 发布完成！"
 echo ""
 echo "📦 版本：v$VERSION"
-echo "🌐 GitHub: https://github.com/sukris/115-cloud-master"
+echo "🌐 GitHub: https://github.com/sukris/115-skills"
 echo "📤 ClawHub: 请手动发布或检查上方输出"

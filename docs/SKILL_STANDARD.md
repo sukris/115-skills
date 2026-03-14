@@ -36,7 +36,7 @@
 ### 2.1 目录结构
 
 ```
-.claude/skills/115-cloud-master/
+.claude/skills/115-skills/
 ├── SKILL.md              # ✅ Skill 主入口（必需）
 ├── reference.md          # ✅ API 参考（推荐）
 ├── examples.md           # ✅ 使用示例（推荐）
@@ -54,7 +54,7 @@
 
 ```yaml
 ---
-name: 115-cloud-master
+name: 115-skills
 description: 115 网盘智能管理：扫码登录、文件浏览、搜索、转存、离线下载、智能整理
 argument-hint: [action] [target] [options]
 disable-model-invocation: true
@@ -93,7 +93,7 @@ allowed-tools: Read, Grep, Glob, Bash
 | 调用方式 | 支持 | 示例 |
 |---------|------|------|
 | 自动触发 | ✅ | "查看我的文件" |
-| 命令调用 | ✅ | `/115-cloud-master 登录` |
+| 命令调用 | ✅ | `/115-skills 登录` |
 | 参数传递 | ✅ | `$ARGUMENTS[0]` |
 | 上下文注入 | ✅ | `$FILE_CONTENTS` |
 

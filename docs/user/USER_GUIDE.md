@@ -19,7 +19,7 @@
 ### 1. 安装 Skill
 
 ```bash
-npx clawhub --workdir ~/.openclaw --dir skills install 115-cloud-master
+npx clawhub --workdir ~/.openclaw --dir skills install 115-skills
 ```
 
 ### 2. 登录 115
@@ -297,8 +297,8 @@ npx clawhub --workdir ~/.openclaw --dir skills install 115-cloud-master
 
 ## 📞 技术支持
 
-- GitHub: https://github.com/sukris/115-cloud-master
-- Issues: https://github.com/sukris/115-cloud-master/issues
+- GitHub: https://github.com/sukris/115-skills
+- Issues: https://github.com/sukris/115-skills/issues
 
 ---
 

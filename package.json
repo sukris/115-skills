@@ -1,5 +1,5 @@
 {
-  "name": "115-cloud-master",
+  "name": "115-skills",
   "version": "1.0.0",
   "description": "115 网盘智能管理 Skill - 扫码登录、文件管理、智能整理、分享转存、离线下载",
   "main": "index.js",
@@ -22,16 +22,16 @@
     "offline-download",
     "transfer"
   ],
-  "author": "115 Cloud Master Team",
+  "author": "115 Skills Team",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sukris/115-cloud-master.git"
+    "url": "git+https://github.com/sukris/115-skills.git"
   },
   "bugs": {
-    "url": "https://github.com/sukris/115-cloud-master/issues"
+    "url": "https://github.com/sukris/115-skills/issues"
   },
-  "homepage": "https://github.com/sukris/115-cloud-master#readme",
+  "homepage": "https://github.com/sukris/115-skills#readme",
   "engines": {
     "node": ">=18.0.0"
   },

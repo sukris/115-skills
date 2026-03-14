@@ -69,7 +69,7 @@
 
 ### 目录结构规范
 ```
-115-cloud-master/
+115-skills/
 ├── lib/           # 核心代码
 ├── storage/       # 存储模块
 ├── utils/         # 工具函数
@@ -344,10 +344,10 @@ npm run release
 
 ### 相关链接
 
-- [GitHub 仓库](https://github.com/sukris/115-cloud-master)
-- [项目看板](https://github.com/sukris/115-cloud-master/projects)
-- [问题追踪](https://github.com/sukris/115-cloud-master/issues)
-- [CI/CD](https://github.com/sukris/115-cloud-master/actions)
+- [GitHub 仓库](https://github.com/sukris/115-skills)
+- [项目看板](https://github.com/sukris/115-skills/projects)
+- [问题追踪](https://github.com/sukris/115-skills/issues)
+- [CI/CD](https://github.com/sukris/115-skills/actions)
 
 ---
 

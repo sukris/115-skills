@@ -122,7 +122,7 @@ rmdir test/analytics test/dialog test/files test/lixian test/share test/utils
 
 | 要求                        | 状态 | 文件路径                           | 验证                              |
 | --------------------------- | ---- | ---------------------------------- | --------------------------------- |
-| 创建 `.claude/skills/` 目录 | ✅   | `.claude/skills/115-cloud-master/` | `ls -la .claude/skills/`          |
+| 创建 `.claude/skills/` 目录 | ✅   | `.claude/skills/115-skills/` | `ls -la .claude/skills/`          |
 | 创建 SKILL.md 主入口        | ✅   | `SKILL.md`                         | 包含 frontmatter                  |
 | YAML frontmatter 配置       | ✅   | SKILL.md 第 1-8 行                 | name/description/argument-hint 等 |
 | 任务化可执行内容            | ✅   | SKILL.md 第 15-80 行               | 8 个可用操作                      |
@@ -300,8 +300,8 @@ rmdir test/analytics test/dialog test/files test/lixian test/share test/utils
 ### 代码结构检查
 
 ```
-115-cloud-master/
-├── .claude/skills/115-cloud-master/  ✅ Skill 规范目录
+115-skills/
+├── .claude/skills/115-skills/  ✅ Skill 规范目录
 │   ├── SKILL.md                      ✅ 主入口
 │   ├── reference.md                  ✅ API 参考
 │   ├── examples.md                   ✅ 使用示例

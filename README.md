@@ -1,8 +1,8 @@
-# 115 Cloud Master
+# 115 Skills
 
 > 115 网盘智能管理 Skill - 让聊天成为管理网盘的最优雅方式
 
-[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/sukris/115-cloud-master)
+[![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/sukris/115-skills)
 [![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-green.svg)](https://nodejs.org/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
@@ -10,7 +10,7 @@
 
 ## 📖 简介
 
-**115 Cloud Master** 是一个功能强大的 OpenClaw Skill，让你在聊天中轻松管理 115 网盘。无需浏览器，无需复杂操作，一切都在对话中完成。
+**115 Skills** 是一个功能强大的 OpenClaw Skill，让你在聊天中轻松管理 115 网盘。无需浏览器，无需复杂操作，一切都在对话中完成。
 
 ## 📜 规范标准
 
@@ -67,7 +67,7 @@
 
 ```bash
 # 通过 ClawHub 安装
-npx clawhub --workdir ~/.openclaw --dir skills install 115-cloud-master
+npx clawhub --workdir ~/.openclaw --dir skills install 115-skills
 ```
 
 ### 使用
@@ -98,8 +98,8 @@ npx clawhub --workdir ~/.openclaw --dir skills install 115-cloud-master
 
 - [用户手册](docs/user/USER_GUIDE.md)
 - [API 文档](docs/api/SKILL_API.md)
-- [技能规范](.claude/skills/115-cloud-master/SKILL.md)
-- [使用示例](.claude/skills/115-cloud-master/examples.md)
+- [技能规范](.claude/skills/115-skills/SKILL.md)
+- [使用示例](.claude/skills/115-skills/examples.md)
 - [评审报告](docs/COMPLETE_REVIEW.md)
 
 ## 🛠️ 开发
@@ -131,10 +131,10 @@ npm run format
 ## 📋 项目结构
 
 ```
-115-cloud-master/
+115-skills/
 ├── .claude/                      # Claude Code 配置
 │   └── skills/                   # Skill 定义（遵循 Claude Code Skills 规范）
-│       └── 115-cloud-master/
+│       └── 115-skills/
 │           ├── SKILL.md          # Skill 主入口（YAML frontmatter + 说明）
 │           ├── reference.md      # API 参考文档
 │           ├── examples.md       # 使用示例
@@ -201,9 +201,9 @@ MIT License
 
 ## 🔗 链接
 
-- [GitHub 仓库](https://github.com/sukris/115-cloud-master)
-- [问题反馈](https://github.com/sukris/115-cloud-master/issues)
-- [ClawHub 页面](https://clawhub.ai/skills/115-cloud-master)
+- [GitHub 仓库](https://github.com/sukris/115-skills)
+- [问题反馈](https://github.com/sukris/115-skills/issues)
+- [ClawHub 页面](https://clawhub.ai/skills/115-skills)
 
 ## 📜 规范参考
 
@@ -221,4 +221,4 @@ MIT License
 
 ---
 
-**Made with ❤️ by 115 Cloud Master Team**
+**Made with ❤️ by 115 Skills Team**

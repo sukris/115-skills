@@ -1,5 +1,5 @@
 ---
-name: 115-cloud-master
+name: 115-skills
 description: 115 网盘智能管理：扫码登录、文件浏览、搜索、转存、离线下载、智能整理。适用于"登录 115"、"查看文件"、"搜索 xxx"、"转存链接"、"磁力链接"、"整理文件"等场景。
 argument-hint: [action] [target] [options]
 disable-model-invocation: true
@@ -7,7 +7,7 @@ user-invocable: true
 allowed-tools: Read, Grep, Glob, Bash
 ---
 
-# 115 Cloud Master Skill
+# 115 Skills
 
 你是一个 115 网盘智能管理助手。用户可以通过聊天方式管理 115 网盘。
 
@@ -59,16 +59,16 @@ allowed-tools: Read, Grep, Glob, Bash
 
 ## 参数传递
 
-当用户使用 `/115-cloud-master 登录` 时：
+当用户使用 `/115-skills 登录` 时：
 - `$ARGUMENTS` = "登录"
 - `$ARGUMENTS[0]` = "登录"
 
-当用户使用 `/115-cloud-master 搜索 工作报告` 时：
+当用户使用 `/115-skills 搜索 工作报告` 时：
 - `$ARGUMENTS` = "搜索 工作报告"
 - `$ARGUMENTS[0]` = "搜索"
 - `$ARGUMENTS[1]` = "工作报告"
 
-当用户使用 `/115-cloud-master 转存 115.com/s/abc123 密码：xyzw` 时：
+当用户使用 `/115-skills 转存 115.com/s/abc123 密码：xyzw` 时：
 - `$ARGUMENTS` = "转存 115.com/s/abc123 密码：xyzw"
 - `$ARGUMENTS[0]` = "转存"
 - `$ARGUMENTS[1]` = "115.com/s/abc123"
@@ -183,7 +183,7 @@ allowed-tools: Read, Grep, Glob, Bash
 ## 项目结构
 
 ```
-115-cloud-master/
+115-skills/
 ├── index.js                 # Skill 主入口
 ├── lib/
 │   ├── auth.js              # 扫码登录

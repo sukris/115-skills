@@ -55,7 +55,7 @@ console.log(JSON.stringify({
 
 ### 保存 Cookie
 
-创建文件 `~/.openclaw/skills/115-cloud-master/.data/cookie.json`：
+创建文件 `~/.openclaw/skills/115-skills/.data/cookie.json`：
 
 ```json
 {
@@ -70,7 +70,7 @@ console.log(JSON.stringify({
 ### 验证 Cookie
 
 ```bash
-cd /home/kris/.openclaw/skills/115-cloud-master
+cd /home/kris/.openclaw/skills/115-skills
 node -e "
 const SessionManager = require('./lib/session');
 const CookieStore = require('./lib/storage/cookie-store');

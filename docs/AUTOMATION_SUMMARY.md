@@ -69,7 +69,7 @@ node scripts/login.js
 ### 3. 代码结构
 
 ```
-115-cloud-master/
+115-skills/
 ├── lib/
 │   ├── auth.js                 # 原有登录模块
 │   ├── auth-puppeteer.js       # ✅ Puppeteer 登录（新增）
@@ -93,7 +93,7 @@ node scripts/login.js
 
 ```bash
 # 1. 进入项目目录
-cd /home/kris/.openclaw/skills/115-cloud-master
+cd /home/kris/.openclaw/skills/115-skills
 
 # 2. 安装依赖（如果还没安装）
 npm install puppeteer --save

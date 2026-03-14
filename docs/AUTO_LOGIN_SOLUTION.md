@@ -83,7 +83,7 @@ async function login() {
 #### 安装依赖
 
 ```bash
-cd /home/kris/.openclaw/skills/115-cloud-master
+cd /home/kris/.openclaw/skills/115-skills
 npm install puppeteer --save
 ```
 
@@ -130,7 +130,7 @@ test();
 #### Cookie 文件位置
 
 ```
-~/.openclaw/skills/115-cloud-master/.data/cookie.json
+~/.openclaw/skills/115-skills/.data/cookie.json
 ```
 
 #### Cookie 格式

@@ -93,10 +93,10 @@ describe('Auth115', () => {
   });
 
   describe('checkQRStatus', () => {
-    it('should return waiting status for code 90038', async () => {
+    it('should return waiting status for status 0', async () => {
       const axios = require('axios');
       axios.get = jest.fn().mockResolvedValue({
-        data: { state: false, code: 90038, message: '请扫描二维码' }
+        data: { data: { status: 0 } }
       });
 
       const result = await auth.checkQRStatus('test-key');
@@ -105,10 +105,34 @@ describe('Auth115', () => {
       expect(result.pending).toBe(true);
     });
 
-    it('should return expired status for code 90039', async () => {
+    it('should return scanned status for status 1', async () => {
       const axios = require('axios');
       axios.get = jest.fn().mockResolvedValue({
-        data: { state: false, code: 90039 }
+        data: { data: { status: 1 } }
+      });
+
+      const result = await auth.checkQRStatus('test-key');
+
+      expect(result.status).toBe('scanned');
+      expect(result.pending).toBe(true);
+    });
+
+    it('should return logged_in status for status 2', async () => {
+      const axios = require('axios');
+      axios.get = jest.fn().mockResolvedValue({
+        data: { data: { status: 2, cookie: 'UID=123; CID=456; SE=789' } }
+      });
+
+      const result = await auth.checkQRStatus('test-key');
+
+      expect(result.status).toBe('logged_in');
+      expect(result.success).toBe(true);
+    });
+
+    it('should return expired status for status -1', async () => {
+      const axios = require('axios');
+      axios.get = jest.fn().mockResolvedValue({
+        data: { data: { status: -1 } }
       });
 
       const result = await auth.checkQRStatus('test-key');
@@ -116,10 +140,10 @@ describe('Auth115', () => {
       expect(result.status).toBe('expired');
     });
 
-    it('should return cancelled status for code 90040', async () => {
+    it('should return cancelled status for status -2', async () => {
       const axios = require('axios');
       axios.get = jest.fn().mockResolvedValue({
-        data: { state: false, code: 90040 }
+        data: { data: { status: -2 } }
       });
 
       const result = await auth.checkQRStatus('test-key');

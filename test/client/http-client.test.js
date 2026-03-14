@@ -205,14 +205,16 @@ describe('HttpClient', () => {
     });
 
     it('should retry on 500 error', async () => {
-      axios
-        .mockRejectedValueOnce({ response: { status: 500 } })
-        .mockResolvedValueOnce({
-          status: 200,
-          data: { state: true }
-        });
+      const error500 = new Error('Internal Server Error');
+      error500.response = { status: 500 };
+      
+      axios.mockImplementationOnce(() => Promise.reject(error500));
+      axios.mockImplementationOnce(() => Promise.resolve({
+        status: 200,
+        data: { state: true }
+      }));
 
-      httpClient.retryConfig.retryDelay = 10; // Fast retry for test
+      httpClient.retryConfig.retryDelay = 10;
 
       const result = await httpClient.request('/test');
 
@@ -221,12 +223,14 @@ describe('HttpClient', () => {
     });
 
     it('should retry on 429 error', async () => {
-      axios
-        .mockRejectedValueOnce({ response: { status: 429 } })
-        .mockResolvedValueOnce({
-          status: 200,
-          data: { state: true }
-        });
+      const error429 = new Error('Too Many Requests');
+      error429.response = { status: 429 };
+      
+      axios.mockImplementationOnce(() => Promise.reject(error429));
+      axios.mockImplementationOnce(() => Promise.resolve({
+        status: 200,
+        data: { state: true }
+      }));
 
       httpClient.retryConfig.retryDelay = 10;
 
@@ -237,17 +241,20 @@ describe('HttpClient', () => {
     });
 
     it('should throw error after max retries', async () => {
-      axios.mockRejectedValue({ response: { status: 500 } });
+      const error500 = new Error('Internal Server Error');
+      error500.response = { status: 500 };
+      
+      axios.mockImplementation(() => Promise.reject(error500));
       httpClient.retryConfig.retryDelay = 10;
 
       await expect(httpClient.request('/test')).rejects.toThrow();
     });
 
     it('should handle API business error', async () => {
-      axios.mockResolvedValue({
+      axios.mockImplementation(() => Promise.resolve({
         status: 200,
         data: { state: false, error: 'Business error' }
-      });
+      }));
 
       await expect(httpClient.request('/test')).rejects.toThrow('Business error');
     });

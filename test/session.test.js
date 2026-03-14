@@ -1,11 +1,14 @@
 const SessionManager = require('../lib/session');
+const Auth115 = require('../lib/auth');
 
-// Mock CookieStore
+// Mock CookieStore and Auth115
 jest.mock('../lib/storage/cookie-store');
+jest.mock('../lib/auth');
 
 describe('SessionManager', () => {
   let sessionManager;
   let mockCookieStore;
+  let mockAuth;
 
   beforeEach(() => {
     mockCookieStore = {
@@ -14,6 +17,13 @@ describe('SessionManager', () => {
       clear: jest.fn(),
       exists: jest.fn()
     };
+    
+    mockAuth = {
+      validateCookie: jest.fn()
+    };
+    
+    Auth115.mockImplementation(() => mockAuth);
+    
     sessionManager = new SessionManager(mockCookieStore);
     jest.clearAllMocks();
   });
@@ -47,6 +57,7 @@ describe('SessionManager', () => {
         expireAt: Date.now() + 1000000
       };
       mockCookieStore.load.mockResolvedValue(mockCookie);
+      mockAuth.validateCookie.mockResolvedValue(true);
 
       const info = await sessionManager.getSessionInfo();
 
@@ -61,11 +72,12 @@ describe('SessionManager', () => {
         expireAt: Date.now() - 1000
       };
       mockCookieStore.load.mockResolvedValue(mockCookie);
+      mockAuth.validateCookie.mockResolvedValue(false);
 
       const info = await sessionManager.getSessionInfo();
 
       expect(info.loggedIn).toBe(false);
-      expect(info.expired).toBe(true);
+      expect(info.reason).toBe('cookie_expired');
     });
   });
 
@@ -83,6 +95,7 @@ describe('SessionManager', () => {
         uid: '123',
         expireAt: Date.now() + 1000000
       });
+      mockAuth.validateCookie.mockResolvedValue(true);
 
       const result = await sessionManager.isLoggedIn();
 
@@ -94,6 +107,7 @@ describe('SessionManager', () => {
         uid: '123',
         expireAt: Date.now() - 1000
       });
+      mockAuth.validateCookie.mockResolvedValue(false);
 
       const result = await sessionManager.isLoggedIn();
 

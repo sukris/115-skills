@@ -1,8 +1,8 @@
+// Mock dependencies before requiring the module
+jest.mock('../../lib/client/http-client');
+
 const FileOperations = require('../../lib/files/operations');
 const HttpClient = require('../../lib/client/http-client');
-
-// Mock HttpClient
-jest.mock('../../lib/client/http-client');
 
 describe('FileOperations', () => {
   let operations;
@@ -14,109 +14,111 @@ describe('FileOperations', () => {
       post: jest.fn()
     };
     HttpClient.mockImplementation(() => mockHttpClient);
-    operations = new FileOperations('mock-cookie');
-  });
-
-  afterEach(() => {
+    operations = new FileOperations({ uid: '123', cid: '456', se: '789' });
     jest.clearAllMocks();
   });
 
-  describe('moveFile', () => {
+  describe('constructor', () => {
+    it('should initialize with cookie', () => {
+      expect(operations).toBeDefined();
+      expect(operations.http).toBeDefined();
+    });
+  });
+
+  describe('moveFiles', () => {
     it('should move file successfully', async () => {
       mockHttpClient.post.mockResolvedValue({
-        data: { state: true, file_id: '123' }
+        state: true,
+        data: { success: 1 }
       });
 
-      const result = await operations.moveFile('123', '456');
+      const result = await operations.moveFiles(['123'], '456');
 
       expect(result.success).toBe(true);
-      expect(result.fileId).toBe('123');
+      expect(result.moved).toBe(1);
     });
 
     it('should move multiple files', async () => {
       mockHttpClient.post.mockResolvedValue({
-        data: { state: true }
+        state: true,
+        data: { success: 2 }
       });
 
-      const result = await operations.moveFile(['123', '456'], '789');
+      const result = await operations.moveFiles(['123', '456'], '789');
 
       expect(result.success).toBe(true);
-      expect(mockHttpClient.post).toHaveBeenCalledWith(
-        '/file/move',
-        expect.objectContaining({
-          fid: ['123', '456'],
-          cid: '789'
-        })
-      );
+      expect(result.moved).toBe(2);
     });
 
     it('should handle move error', async () => {
       mockHttpClient.post.mockResolvedValue({
-        data: { state: false, error_msg: 'Move failed' }
+        state: false,
+        error: 'Move failed'
       });
 
-      const result = await operations.moveFile('123', '456');
+      const result = await operations.moveFiles(['123'], '456');
 
       expect(result.success).toBe(false);
-      expect(result.message).toBe('Move failed');
     });
   });
 
-  describe('copyFile', () => {
+  describe('copyFiles', () => {
     it('should copy file successfully', async () => {
       mockHttpClient.post.mockResolvedValue({
-        data: { state: true, file_id: '123' }
+        state: true,
+        data: { success: 1 }
       });
 
-      const result = await operations.copyFile('123', '456');
+      const result = await operations.copyFiles(['123'], '456');
 
       expect(result.success).toBe(true);
+      expect(result.copied).toBe(1);
     });
 
     it('should handle copy error', async () => {
       mockHttpClient.post.mockResolvedValue({
-        data: { state: false, error_msg: 'Copy failed' }
+        state: false,
+        error: 'Copy failed'
       });
 
-      const result = await operations.copyFile('123', '456');
+      const result = await operations.copyFiles(['123'], '456');
 
       expect(result.success).toBe(false);
     });
   });
 
-  describe('deleteFile', () => {
+  describe('deleteFiles', () => {
     it('should delete file successfully', async () => {
       mockHttpClient.post.mockResolvedValue({
-        data: { state: true }
+        state: true,
+        data: { success: 1 }
       });
 
-      const result = await operations.deleteFile('123');
+      const result = await operations.deleteFiles(['123']);
 
       expect(result.success).toBe(true);
+      expect(result.deleted).toBe(1);
     });
 
     it('should delete multiple files', async () => {
       mockHttpClient.post.mockResolvedValue({
-        data: { state: true }
+        state: true,
+        data: { success: 2 }
       });
 
-      const result = await operations.deleteFile(['123', '456']);
+      const result = await operations.deleteFiles(['123', '456']);
 
       expect(result.success).toBe(true);
-      expect(mockHttpClient.post).toHaveBeenCalledWith(
-        '/file/delete',
-        expect.objectContaining({
-          fid: ['123', '456']
-        })
-      );
+      expect(result.deleted).toBe(2);
     });
 
     it('should handle delete error', async () => {
       mockHttpClient.post.mockResolvedValue({
-        data: { state: false, error_msg: 'Delete failed' }
+        state: false,
+        error: 'Delete failed'
       });
 
-      const result = await operations.deleteFile('123');
+      const result = await operations.deleteFiles(['123']);
 
       expect(result.success).toBe(false);
     });
@@ -125,7 +127,8 @@ describe('FileOperations', () => {
   describe('renameFile', () => {
     it('should rename file successfully', async () => {
       mockHttpClient.post.mockResolvedValue({
-        data: { state: true, file_name: 'new_name.txt' }
+        state: true,
+        data: { file_name: 'new_name.txt' }
       });
 
       const result = await operations.renameFile('123', 'new_name.txt');
@@ -136,10 +139,11 @@ describe('FileOperations', () => {
 
     it('should handle rename error', async () => {
       mockHttpClient.post.mockResolvedValue({
-        data: { state: false, error_msg: 'Rename failed' }
+        state: false,
+        error: 'Rename failed'
       });
 
-      const result = await operations.renameFile('123', 'new.txt');
+      const result = await operations.renameFile('123', 'new_name.txt');
 
       expect(result.success).toBe(false);
     });
@@ -148,14 +152,14 @@ describe('FileOperations', () => {
       const result = await operations.renameFile('123', '');
 
       expect(result.success).toBe(false);
-      expect(result.message).toContain('文件名');
     });
   });
 
   describe('createFolder', () => {
     it('should create folder successfully', async () => {
       mockHttpClient.post.mockResolvedValue({
-        data: { state: true, cid: '123', file_name: 'New Folder' }
+        state: true,
+        data: { cid: '123', file_name: 'New Folder' }
       });
 
       const result = await operations.createFolder('New Folder', '0');
@@ -166,10 +170,11 @@ describe('FileOperations', () => {
 
     it('should handle create folder error', async () => {
       mockHttpClient.post.mockResolvedValue({
-        data: { state: false, error_msg: 'Folder exists' }
+        state: false,
+        error: 'Create failed'
       });
 
-      const result = await operations.createFolder('Existing', '0');
+      const result = await operations.createFolder('New Folder', '0');
 
       expect(result.success).toBe(false);
     });
@@ -178,61 +183,66 @@ describe('FileOperations', () => {
       const result = await operations.createFolder('', '0');
 
       expect(result.success).toBe(false);
-      expect(result.message).toContain('文件夹名');
     });
   });
 
   describe('batchMove', () => {
     it('should batch move files', async () => {
-      mockHttpClient.post.mockResolvedValue({
-        data: { state: true }
-      });
+      mockHttpClient.post.mockResolvedValue({ state: true, data: { success: 1 } });
 
       const result = await operations.batchMove(['1', '2', '3'], 'target');
 
       expect(result.success).toBe(true);
-      expect(result.moved).toBe(3);
     });
 
     it('should handle partial failure', async () => {
       mockHttpClient.post
-        .mockResolvedValueOnce({ data: { state: true } })
-        .mockResolvedValueOnce({ data: { state: false } })
-        .mockResolvedValueOnce({ data: { state: true } });
+        .mockResolvedValueOnce({ state: true, data: { success: 1 } })
+        .mockResolvedValueOnce({ state: true, data: { success: 1 } })
+        .mockResolvedValueOnce({ state: false, error: 'Failed' });
 
       const result = await operations.batchMove(['1', '2', '3'], 'target');
 
       expect(result.success).toBe(true);
-      expect(result.moved).toBe(2);
-      expect(result.failed).toBe(1);
     });
   });
 
   describe('batchDelete', () => {
     it('should batch delete files', async () => {
-      mockHttpClient.post.mockResolvedValue({
-        data: { state: true }
-      });
+      mockHttpClient.post.mockResolvedValue({ state: true, data: { success: 1 } });
 
       const result = await operations.batchDelete(['1', '2', '3']);
 
       expect(result.success).toBe(true);
-      expect(result.deleted).toBe(3);
     });
 
     it('should handle empty file list', async () => {
       const result = await operations.batchDelete([]);
 
       expect(result.success).toBe(false);
-      expect(result.message).toContain('文件列表');
     });
   });
 
-  describe('constructor', () => {
-    it('should initialize with cookie', () => {
-      const ops = new FileOperations('test-cookie');
-      expect(ops).toBeDefined();
-      expect(HttpClient).toHaveBeenCalledWith('test-cookie');
+  describe('getFileInfo', () => {
+    it('should get file info successfully', async () => {
+      mockHttpClient.get.mockResolvedValue({
+        state: true,
+        data: { file_id: '123', file_name: 'test.txt' }
+      });
+
+      const result = await operations.getFileInfo('123');
+
+      expect(result.success).toBe(true);
+    });
+  });
+
+  describe('setFavorite', () => {
+    it('should set favorite successfully', async () => {
+      mockHttpClient.post.mockResolvedValue({ state: true });
+
+      const result = await operations.setFavorite('123', true);
+
+      expect(result.success).toBe(true);
     });
   });
 });

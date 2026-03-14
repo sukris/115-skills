@@ -1,0 +1,83 @@
+{
+  "meta": {
+    "version": "1.0",
+    "created": "2026-03-14",
+    "description": "115 Skills API 测试数据定义"
+  },
+  "testDirectory": {
+    "name": "115-skills-test-{DATE}",
+    "pattern": "/115-skills-test-YYYYMMDD/",
+    "description": "独立测试目录，测试完成后删除"
+  },
+  "testFiles": {
+    "upload": {
+      "small": {
+        "filename": "test-upload-small.txt",
+        "content": "115 Skills API Test - Small File\nGenerated: {TIMESTAMP}\nSize: < 1MB",
+        "size": 1024,
+        "mimeType": "text/plain"
+      },
+      "medium": {
+        "filename": "test-upload-medium.txt",
+        "content": "115 Skills API Test - Medium File\nGenerated: {TIMESTAMP}\nSize: 1-10MB\n\n[重复内容以达到目标大小]",
+        "size": 5242880,
+        "mimeType": "text/plain"
+      },
+      "image": {
+        "filename": "test-upload-image.png",
+        "description": "测试用图片文件",
+        "size": 102400,
+        "mimeType": "image/png"
+      }
+    },
+    "directory": {
+      "names": [
+        "01_upload_test",
+        "02_move_test",
+        "03_copy_test",
+        "04_rename_test",
+        "05_share_test",
+        "06_lixian_test",
+        "07_cleanup_test"
+      ],
+      "description": "测试子目录，按功能分类"
+    }
+  },
+  "testData": {
+    "search": {
+      "keywords": [
+        "test",
+        "115",
+        "skills"
+      ],
+      "description": "搜索测试关键词"
+    },
+    "share": {
+      "testCode": "abc123",
+      "testPassword": "xyzw",
+      "description": "分享测试数据（仅用于解析测试）"
+    },
+    "lixian": {
+      "magnet": "magnet:?xt=urn:btih:test123456789",
+      "http": "http://example.com/test.file",
+      "description": "离线下载测试链接（公共测试资源）"
+    }
+  },
+  "cleanup": {
+    "files": [
+      "test-upload-*.txt",
+      "test-upload-*.png"
+    ],
+    "directories": [
+      "01_*",
+      "02_*",
+      "03_*",
+      "04_*",
+      "05_*",
+      "06_*",
+      "07_*"
+    ],
+    "pattern": "/115-skills-test-*/",
+    "description": "测试完成后需要清理的文件和目录"
+  }
+}

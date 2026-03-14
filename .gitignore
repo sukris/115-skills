@@ -23,6 +23,8 @@ temp/
 .env.*.local
 config/local.json
 lib/storage/cookies.json
+.data/
+*.cookie.json
 
 # 测试
 coverage/

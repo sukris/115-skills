@@ -1,0 +1,381 @@
+{
+  "timestamp": "2026-03-14T14:40:56.238Z",
+  "total": 27,
+  "passed": 19,
+  "failed": 8,
+  "rate": "70.4",
+  "modules": {
+    "L0": {
+      "total": 5,
+      "passed": 5,
+      "results": [
+        {
+          "id": "L0-01",
+          "name": "Cookie 文件存在",
+          "pass": true,
+          "module": "L0"
+        },
+        {
+          "id": "L0-02",
+          "name": "Cookie 格式验证",
+          "pass": true,
+          "module": "L0"
+        },
+        {
+          "id": "L0-03",
+          "name": "有效期检查",
+          "pass": true,
+          "module": "L0"
+        },
+        {
+          "id": "L0-04",
+          "name": "文件列表 API",
+          "pass": true,
+          "module": "L0"
+        },
+        {
+          "id": "L0-05",
+          "name": "user/setting API",
+          "pass": true,
+          "module": "L0"
+        }
+      ]
+    },
+    "L1": {
+      "total": 16,
+      "passed": 10,
+      "results": [
+        {
+          "id": "L1-BRW-01",
+          "name": "根目录文件列表",
+          "pass": true,
+          "module": "L1"
+        },
+        {
+          "id": "L1-BRW-02",
+          "name": "用户信息",
+          "pass": false,
+          "module": "L1"
+        },
+        {
+          "id": "L1-BRW-03",
+          "name": "用户设置",
+          "pass": true,
+          "module": "L1"
+        },
+        {
+          "id": "L1-OPS-01",
+          "name": "创建目录",
+          "pass": true,
+          "module": "L1"
+        },
+        {
+          "id": "L1-OPS-02",
+          "name": "重命名目录",
+          "pass": true,
+          "module": "L1"
+        },
+        {
+          "id": "L1-OPS-03",
+          "name": "移动目录",
+          "pass": true,
+          "module": "L1"
+        },
+        {
+          "id": "L1-OPS-04",
+          "name": "复制目录",
+          "pass": true,
+          "module": "L1"
+        },
+        {
+          "id": "L1-OPS-05",
+          "name": "删除目录",
+          "pass": false,
+          "module": "L1"
+        },
+        {
+          "id": "L1-TRF-01",
+          "name": "获取上传签名",
+          "pass": false,
+          "module": "L1"
+        },
+        {
+          "id": "L1-TRF-02",
+          "name": "秒传检测",
+          "pass": false,
+          "module": "L1"
+        },
+        {
+          "id": "L1-TRF-03",
+          "name": "获取下载链接",
+          "pass": true,
+          "module": "L1"
+        },
+        {
+          "id": "L1-TRF-04",
+          "name": "批量下载",
+          "pass": true,
+          "module": "L1"
+        },
+        {
+          "id": "L1-SHR-01",
+          "name": "创建分享",
+          "pass": false,
+          "module": "L1"
+        },
+        {
+          "id": "L1-SHR-02",
+          "name": "分享列表",
+          "pass": false,
+          "module": "L1"
+        },
+        {
+          "id": "L1-LX-01",
+          "name": "离线任务列表",
+          "pass": true,
+          "module": "L1"
+        },
+        {
+          "id": "L1-LX-02",
+          "name": "添加离线下载",
+          "pass": true,
+          "module": "L1"
+        }
+      ]
+    },
+    "L2": {
+      "total": 3,
+      "passed": 1,
+      "results": [
+        {
+          "id": "L2-INT-01",
+          "name": "文件操作流程集成",
+          "pass": false,
+          "module": "L2"
+        },
+        {
+          "id": "L2-INT-02",
+          "name": "批量操作集成",
+          "pass": false,
+          "module": "L2"
+        },
+        {
+          "id": "L2-INT-03",
+          "name": "下载流程集成",
+          "pass": true,
+          "module": "L2"
+        }
+      ]
+    },
+    "L3": {
+      "total": 3,
+      "passed": 3,
+      "results": [
+        {
+          "id": "L3-FLOW-01",
+          "name": "文件整理流程",
+          "pass": true,
+          "module": "L3"
+        },
+        {
+          "id": "L3-FLOW-02",
+          "name": "文件备份流程",
+          "pass": true,
+          "module": "L3"
+        },
+        {
+          "id": "L3-FLOW-03",
+          "name": "离线下载流程",
+          "pass": true,
+          "module": "L3"
+        }
+      ]
+    }
+  },
+  "allResults": [
+    {
+      "id": "L0-01",
+      "name": "Cookie 文件存在",
+      "pass": true,
+      "module": "L0"
+    },
+    {
+      "id": "L0-02",
+      "name": "Cookie 格式验证",
+      "pass": true,
+      "module": "L0"
+    },
+    {
+      "id": "L0-03",
+      "name": "有效期检查",
+      "pass": true,
+      "module": "L0"
+    },
+    {
+      "id": "L0-04",
+      "name": "文件列表 API",
+      "pass": true,
+      "module": "L0"
+    },
+    {
+      "id": "L0-05",
+      "name": "user/setting API",
+      "pass": true,
+      "module": "L0"
+    },
+    {
+      "id": "L1-BRW-01",
+      "name": "根目录文件列表",
+      "pass": true,
+      "module": "L1"
+    },
+    {
+      "id": "L1-BRW-02",
+      "name": "用户信息",
+      "pass": false,
+      "module": "L1"
+    },
+    {
+      "id": "L1-BRW-03",
+      "name": "用户设置",
+      "pass": true,
+      "module": "L1"
+    },
+    {
+      "id": "L1-OPS-01",
+      "name": "创建目录",
+      "pass": true,
+      "module": "L1"
+    },
+    {
+      "id": "L1-OPS-02",
+      "name": "重命名目录",
+      "pass": true,
+      "module": "L1"
+    },
+    {
+      "id": "L1-OPS-03",
+      "name": "移动目录",
+      "pass": true,
+      "module": "L1"
+    },
+    {
+      "id": "L1-OPS-04",
+      "name": "复制目录",
+      "pass": true,
+      "module": "L1"
+    },
+    {
+      "id": "L1-OPS-05",
+      "name": "删除目录",
+      "pass": false,
+      "module": "L1"
+    },
+    {
+      "id": "L1-TRF-01",
+      "name": "获取上传签名",
+      "pass": false,
+      "module": "L1"
+    },
+    {
+      "id": "L1-TRF-02",
+      "name": "秒传检测",
+      "pass": false,
+      "module": "L1"
+    },
+    {
+      "id": "L1-TRF-03",
+      "name": "获取下载链接",
+      "pass": true,
+      "module": "L1"
+    },
+    {
+      "id": "L1-TRF-04",
+      "name": "批量下载",
+      "pass": true,
+      "module": "L1"
+    },
+    {
+      "id": "L1-SHR-01",
+      "name": "创建分享",
+      "pass": false,
+      "module": "L1"
+    },
+    {
+      "id": "L1-SHR-02",
+      "name": "分享列表",
+      "pass": false,
+      "module": "L1"
+    },
+    {
+      "id": "L1-LX-01",
+      "name": "离线任务列表",
+      "pass": true,
+      "module": "L1"
+    },
+    {
+      "id": "L1-LX-02",
+      "name": "添加离线下载",
+      "pass": true,
+      "module": "L1"
+    },
+    {
+      "id": "L2-INT-01",
+      "name": "文件操作流程集成",
+      "pass": false,
+      "module": "L2"
+    },
+    {
+      "id": "L2-INT-02",
+      "name": "批量操作集成",
+      "pass": false,
+      "module": "L2"
+    },
+    {
+      "id": "L2-INT-03",
+      "name": "下载流程集成",
+      "pass": true,
+      "module": "L2"
+    },
+    {
+      "id": "L3-FLOW-01",
+      "name": "文件整理流程",
+      "pass": true,
+      "module": "L3"
+    },
+    {
+      "id": "L3-FLOW-02",
+      "name": "文件备份流程",
+      "pass": true,
+      "module": "L3"
+    },
+    {
+      "id": "L3-FLOW-03",
+      "name": "离线下载流程",
+      "pass": true,
+      "module": "L3"
+    }
+  ],
+  "acceptance": {
+    "L0": {
+      "rate": 100,
+      "standard": 100,
+      "pass": true
+    },
+    "L1": {
+      "rate": 62.5,
+      "standard": 90,
+      "pass": false
+    },
+    "L2": {
+      "rate": 33.3,
+      "standard": 67,
+      "pass": false
+    },
+    "L3": {
+      "rate": 100,
+      "standard": 67,
+      "pass": true
+    }
+  }
+}

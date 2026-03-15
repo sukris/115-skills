@@ -254,7 +254,8 @@ describe('FileBrowser', () => {
     it('should get starred files', async () => {
       mockHttpClient.get.mockResolvedValue({ state: true, data: [], count: 0 });
 
-      const result = await browser.getStarredFiles();
+      // const result = await browser.getStarredFiles(); // 未使用，注释掉
+      await browser.getStarredFiles();
 
       expect(mockHttpClient.get).toHaveBeenCalledWith(
         '/files',

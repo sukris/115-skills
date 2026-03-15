@@ -7,11 +7,14 @@
     "start": "node index.js",
     "test": "jest --coverage",
     "test:watch": "jest --watch",
+    "test:ci": "jest --coverage --ci --maxWorkers=2",
     "lint": "eslint lib/ test/ index.js",
     "lint:fix": "eslint lib/ test/ index.js --fix",
     "format": "prettier --write 'lib/**/*.js' 'test/**/*.js' index.js",
     "build": "echo 'No build step required'",
-    "release": "bash scripts/release.sh"
+    "release": "bash scripts/release.sh",
+    "local-ci": "bash scripts/local-ci.sh",
+    "precommit": "npm run lint && npm test"
   },
   "keywords": [
     "115",

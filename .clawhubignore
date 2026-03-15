@@ -1,0 +1,61 @@
+# ============ ClawHub 发布忽略文件 ============
+# 用于 .clawhubignore 或发布时排除
+
+# 保密内容（最高优先级）
+.secrets/
+.private/
+.data/
+
+# Git 相关
+.git/
+.gitignore
+.github/
+
+# 测试相关
+test/
+tests/
+*.test.js
+*.spec.js
+jest.config.js
+coverage/
+
+# 开发工具配置
+.eslintrc.js
+.prettierrc
+.editorconfig
+.vscode/
+.idea/
+
+# 文档（保留必要的）
+docs/
+!docs/user/
+!docs/api/
+RELEASE-*.md
+memory/
+
+# 脚本
+scripts/
+!scripts/install.sh
+
+# 临时文件
+tmp/
+temp/
+*.tmp
+*.bak
+*.log
+qrcode-login.png
+qrcode-token.json
+scripts/test-report.json
+
+# 依赖（安装时自动生成）
+node_modules/
+
+# 构建输出
+dist/
+build/
+
+# 其他
+*.md
+!README.md
+!SKILL.md
+!clawhub.json

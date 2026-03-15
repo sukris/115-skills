@@ -10,9 +10,9 @@ coverage/
 
 # ============ 依赖 ============
 node_modules/
-package-lock.json
-yarn.lock
-pnpm-lock.yaml
+# package-lock.json - 保留用于 CI/CD（不忽略）
+# yarn.lock
+# pnpm-lock.yaml
 
 # ============ 日志 ============
 logs/

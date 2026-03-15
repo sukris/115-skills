@@ -80,7 +80,7 @@
 
 ### 示例 6：解析分享链接
 ```
-用户：https://115.com/s/abc123 密码：xyzw
+用户：https://115.com/s/SHARE_CODE 密码：PASSCODE
 
 助手：📦 分享详情
      ━━━━━━━━━━━━━━
@@ -112,7 +112,7 @@
 
 ### 示例 8：添加磁力任务
 ```
-用户：magnet:?xt=urn:btih:abc123...
+用户：magnet:?xt=urn:btih:HASH...
 
 助手：✅ 磁力任务已添加
      📥 复仇者联盟 4.mkv
@@ -259,7 +259,7 @@
 ### 示例 17：批量转存多个分享
 ```
 用户：转存以下链接
-     https://115.com/s/abc123
+     https://115.com/s/SHARE_CODE
      https://115.com/s/def456
      https://115.com/s/ghi789
 

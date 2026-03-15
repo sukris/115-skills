@@ -171,8 +171,8 @@ try {
  * 
  * 支持多种格式：
  * - 纯分享码：abc123
- * - 完整链接：https://115.com/s/abc123
- * - 带提取码：abc123#xyzw
+ * - 完整链接：https://115.com/s/SHARE_CODE
+ * - 带提取码：abc123#PASSCODE
  * 
  * @param {string} shareCode - 分享码或链接
  * @returns {Object} 解析结果
@@ -180,7 +180,7 @@ try {
  * @returns {string} return.password - 提取码（可选）
  * 
  * @example
- * parseShareCode('https://115.com/s/abc123?password=xyzw')
+ * parseShareCode('https://115.com/s/SHARE_CODE?password=xyzw')
  * // returns { code: 'abc123', password: 'xyzw' }
  */
 function parseShareCode(shareCode) {

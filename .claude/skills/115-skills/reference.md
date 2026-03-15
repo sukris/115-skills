@@ -109,7 +109,7 @@ await transfer.downloadFile(fileId, savePath, { onProgress });
 
 ### 解析分享码
 ```javascript
-const parsed = share.parseShareCode('https://115.com/s/abc123#xyzw');
+const parsed = share.parseShareCode('https://115.com/s/SHARE_CODE#PASSCODE');
 // 返回：{ success, code, password, original }
 ```
 

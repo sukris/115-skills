@@ -156,7 +156,7 @@ await transfer.batchUpload(filePaths, targetCid, { onProgress });
 const share = new ShareTransfer(cookie);
 
 // 解析分享码
-const parsed = share.parseShareCode('https://115.com/s/abc123#xyzw');
+const parsed = share.parseShareCode('https://115.com/s/SHARE_CODE#PASSCODE');
 
 // 获取分享详情
 const info = await share.getShareInfo(shareCode, password);
@@ -272,7 +272,7 @@ const skill = new Skill115Master(agent);
 const response = await skill.handle('登录 115');
 
 // 处理转存
-const response = await skill.handle('https://115.com/s/abc123 密码：xyzw');
+const response = await skill.handle('https://115.com/s/SHARE_CODE 密码：PASSCODE');
 
 // 处理离线下载
 const response = await skill.handle('magnet:?xt=urn:btih:...');

@@ -98,7 +98,7 @@ npx clawhub --workdir ~/.openclaw --dir skills install 115-skills
 
 **示例：**
 ```
-你：https://115.com/s/abc123 密码：xyzw
+你：https://115.com/s/SHARE_CODE 密码：PASSCODE
 助手：📦 分享详情
       📝 精选电影合集
       📁 25 个文件 | 50.5 GB
@@ -124,7 +124,7 @@ npx clawhub --workdir ~/.openclaw --dir skills install 115-skills
 
 **示例：**
 ```
-你：magnet:?xt=urn:btih:abc123...
+你：magnet:?xt=urn:btih:HASH...
 助手：✅ 磁力任务已添加
       📥 复仇者联盟 4.mkv
       💾 4.2 GB

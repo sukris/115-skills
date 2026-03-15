@@ -171,7 +171,7 @@ npm install --production
 **使用示例：**
 ```
 @115 查看我的文件
-@115 转存 https://115.com/s/abc123
+@115 转存 https://115.com/s/SHARE_CODE
 ```
 
 ---
@@ -284,7 +284,7 @@ cat .claude/skills/115-skills/SKILL.md
 助手：[列出文件列表]
 
 # 转存
-你：https://115.com/s/abc123 密码：xyzw
+你：https://115.com/s/SHARE_CODE 密码：PASSCODE
 助手：[解析分享] 确认转存？
 
 # 离线下载

@@ -296,8 +296,21 @@ cat .claude/skills/115-skills/SKILL.md
 助手：[智能分类完成]
 ```
 
-## 截图
+## 📸 截图
 
+### 扫码登录
+
+![扫码登录](docs/img/CleanShot%202026-03-15%20at%2020.30.18@2x.png)
+
+### 文件管理
+
+![真实使用界面](docs/img/真实使用图片.png)
+
+### CI/CD 测试通过
+
+![测试报告](docs/img/CleanShot%202026-03-15%20at%2020.51.32@2x.png)
+
+---
 
 ## 📚 文档
 

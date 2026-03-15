@@ -5,6 +5,7 @@
 [![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)](https://github.com/sukris/115-skills)
 [![Node](https://img.shields.io/badge/node-%3E%3D18.0.0-green.svg)](https://nodejs.org/)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Security](https://img.shields.io/badge/VirusTotal-✅ 通过-brightgreen.svg)](https://www.virustotal.com/gui/file/3baa2909b177ff129c4c5ab1f93c84becf178cfbde4c99a65d9d17ccd4038fc2)
 
 ---
 

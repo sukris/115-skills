@@ -1,0 +1,88 @@
+{
+  "name": "115-skills",
+  "version": "1.0.0",
+  "description": "115 网盘智能管理 Skill - 让聊天成为管理网盘的最优雅方式",
+  "author": "sukris",
+  "license": "MIT",
+  "homepage": "https://github.com/sukris/115-skills",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sukris/115-skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sukris/115-skills/issues"
+  },
+  "keywords": [
+    "115",
+    "cloud-storage",
+    "openclaw",
+    "skill",
+    "file-manager",
+    "ai-assistant"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest --coverage",
+    "lint": "eslint lib/ test/ index.js",
+    "format": "prettier --write 'lib/**/*.js' 'test/**/*.js' index.js"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
+  },
+  "clawhub": {
+    "category": "productivity-and-tasks",
+    "tags": [
+      "115",
+      "cloud-storage",
+      "file-management",
+      "ai-skill"
+    ],
+    "features": [
+      "扫码登录",
+      "文件管理",
+      "智能整理",
+      "分享转存",
+      "离线下载",
+      "智能清理"
+    ],
+    "platforms": [
+      "Claude Code",
+      "Gemini CLI",
+      "Cursor",
+      "OpenHands"
+    ],
+    "install": {
+      "type": "git",
+      "command": "npx clawhub --workdir ~/.openclaw --dir skills install 115-skills"
+    },
+    "docs": {
+      "readme": "README.md",
+      "usage": "docs/user/USER_GUIDE.md",
+      "api": "docs/api/SKILL_API.md"
+    },
+    "release": {
+      "version": "1.0.0",
+      "date": "2026-03-15",
+      "changes": [
+        "✨ 完整重构 - 采用方案 C（混合模式）",
+        "🔐 扫码登录 + Cookie 自动管理",
+        "📁 文件管理（浏览/搜索/上传/下载）",
+        "🤖 智能整理（自动分类/重复检测）",
+        "📦 分享转存（多格式解析/批量转存）",
+        "⬇️ 离线下载（磁力/BT/HTTP）",
+        "🧹 智能清理（大文件/重复检测）",
+        "🔧 上下文管理器",
+        "🔧 快捷命令解析器（30+ 快捷词）",
+        "🔧 主动推荐系统（场景感知）",
+        "🔧 错误处理优化（15+ 错误类型）",
+        "🎨 卡片式响应（15+ 卡片类型）",
+        "📊 进度显示组件",
+        "📊 382 个测试用例，100% 通过率",
+        "🚀 GitHub Actions CI/CD",
+        "📝 完整文档（5 种安装方式 + 13 个常见问题）"
+      ]
+    }
+  }
+}

@@ -295,6 +295,9 @@ cat .claude/skills/115-skills/SKILL.md
 助手：[智能分类完成]
 ```
 
+## 截图
+
+
 ## 📚 文档
 
 - [用户手册](docs/user/USER_GUIDE.md)
